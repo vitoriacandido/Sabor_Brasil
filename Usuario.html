@@ -1,0 +1,470 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Usuário</title>
+
+  <!-- Bootstrap 5 CSS -->
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet" />
+
+  <!-- Font Awesome -->
+  <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" rel="stylesheet" />
+
+  <style>
+    body {
+      font-family: 'Arial', sans-serif;
+      background-color: #ffffff;
+      color: #000;
+      transition: background-color 0.3s ease, color 0.3s ease;
+    }
+
+    .navbar-brand {
+      font-weight: bold;
+      color: #ffc107 !important;
+    }
+
+    .logo-img {
+      width: 45px;
+      border-radius: 50%;
+    }
+
+    .card img {
+      object-fit: cover;
+      height: 300px;
+    }
+
+    .card-body {
+      background-color: #ffffff;
+      transition: background-color 0.3s ease, color 0.3s ease;
+    }
+
+    .like-button, .dislike-button {
+      cursor: pointer;
+      background: none;
+      border: none;
+      font-size: 1.2rem;
+      color: inherit;
+      transition: transform 0.2s ease;
+    }
+
+    .like-button:hover:not(.liked), 
+    .dislike-button:hover:not(.disliked) {
+      transform: scale(1.1);
+    }
+
+    .liked {
+      color: #0d6efd !important;
+      cursor: default;
+    }
+
+    .disliked {
+      color: #dc3545 !important;
+      cursor: default;
+    }
+
+    .user-sidebar {
+      border-right: 1px solid #000000;
+      transition: border-color 0.3s ease;
+    }
+
+    .right-sidebar {
+      border-left: 1px solid #000000;
+      transition: border-color 0.3s ease;
+    }
+
+    .mode-toggle {
+      position: fixed;
+      bottom: 20px;
+      right: 20px;
+      z-index: 1050;
+    }
+
+    body.dark-mode {
+      background-color: #121212;
+      color: #ff0000;
+    }
+
+    body.dark-mode .navbar {
+      background-color: #000 !important;
+    }
+
+    body.dark-mode .card-body {
+      background-color: #1e1e1e;
+      color: #eee;
+    }
+
+    body.dark-mode .user-sidebar, 
+    body.dark-mode .right-sidebar {
+      border-color: #444;
+    }
+
+    body.dark-mode footer {
+      background-color: #222;
+      color: #ccc;
+    }
+
+    body.dark-mode .btn-link {
+      color: #9ecfff;
+    }
+  </style>
+</head>
+
+<body>
+
+  <header class="navbar navbar-dark bg-black sticky-top px-3 shadow-sm justify-content-between">
+    <a class="navbar-brand" href="Usuario.html">@AnnaLuiza</a>
+    <div class="d-flex align-items-center gap-3">
+      <a href="index.html" class="text-white" title="Página Inicial"><i class="fas fa-home"></i></a>
+      <a href="Usuario.html" class="text-white" title="Perfil do Usuário"><i class="fas fa-user-circle"></i></a>
+      <img src="img/Usuario.jpg" alt="Foto do usuário" class="rounded-circle" width="32" height="32" style="object-fit: cover;">
+    </div>
+  </header>
+
+  <main class="container-fluid">
+    <div class="row min-vh-100">
+
+      <aside class="col-md-2 bg text-center py-4 user-sidebar">
+        <img src="img/user1.jpg" class="rounded-circle mb-3" width="90" alt="Foto do usuário">
+        <h5 class="mt-2">@AnnaLuiza</h5>
+
+        <p class="text-muted small">"Amante da culinária brasileira 🇧🇷"</p>
+
+        <div class="d-flex justify-content-center gap-3 mb-3">
+          <div>
+            <strong>4</strong><br><small>Publicações</small>
+          </div>
+          <div>
+            <strong>530</strong><br><small>Seguidores</small>
+          </div>
+          <div>
+            <strong>180</strong><br><small>Seguindo</small>
+          </div>
+        </div>
+
+        <hr>
+        <p><strong id="totalLikes">0</strong><br>Likes</p>
+        <p><strong id="totalDislikes">0</strong><br>Dislikes</p>
+      </aside>
+
+      <section class="col-md-8 p-4">
+        <h3 class="text-center fw-bold mb-4">Minhas Publicações</h3>
+        <div class="row row-cols-1 row-cols-md-2 g-4">
+
+          <!-- Post 1 -->
+          <div class="col">
+            <div class="card" data-post-id="1">
+              <img src="img/publicacao1.jpg" class="card-img-top" alt="Tacacá">
+              <div class="card-body">
+                <h3 class="card-title">Tacacá</h3>
+                <h5><p>Sabor da Amazônia! Vou querer a receita depois.</p></h5>
+                <p class="card-text">Amazônia-BR</p>
+                <div class="d-flex align-items-center gap-3">
+                  <button class="like-button" aria-label="Curtir Tacacá"><i class="fas fa-thumbs-up"></i></button>
+                  <span class="like-count">120</span>
+                  <button class="dislike-button" aria-label="Não Curtir Tacacá"><i class="fas fa-thumbs-down"></i></button>
+                  <span class="dislike-count">4</span>
+                  <button class="btn btn-link p-0 comment-button" data-post-id="1" aria-label="Comentários Tacacá">
+                    <i class="far fa-comment"></i> <span class="comment-count">0</span>
+                  </button>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- Post 2 -->
+          <div class="col">
+            <div class="card" data-post-id="2">
+              <img src="img/publicacao2.jpeg" class="card-img-top" alt="Sushi">
+              <div class="card-body">
+                <h3 class="card-title">Sushi</h3>
+                <h5><p>Delícia Japonesa</p></h5>
+                <p class="card-text">Japão</p>
+                <div class="d-flex align-items-center gap-3">
+                  <button class="like-button" aria-label="Curtir Sushi"><i class="fas fa-thumbs-up"></i></button>
+                  <span class="like-count">88</span>
+                  <button class="dislike-button" aria-label="Não Curtir Sushi"><i class="fas fa-thumbs-down"></i></button>
+                  <span class="dislike-count">2</span>
+                  <button class="btn btn-link p-0 comment-button" data-post-id="2" aria-label="Comentários Sushi">
+                    <i class="far fa-comment"></i> <span class="comment-count">0</span>
+                  </button>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- Post 3 -->
+          <div class="col">
+            <div class="card" data-post-id="3">
+              <img src="img/publicacao3.jpg" class="card-img-top" alt="Xis">
+              <div class="card-body">
+                <h3 class="card-title">Xis</h3>
+                <h5><p>Tive que experimentar com meus amigos do sul!</p></h5>
+                <p class="card-text">Rio Grande do Sul</p>
+                <div class="d-flex align-items-center gap-3">
+                  <button class="like-button" aria-label="Curtir Xis"><i class="fas fa-thumbs-up"></i></button>
+                  <span class="like-count">130</span>
+                  <button class="dislike-button" aria-label="Não Curtir Xis"><i class="fas fa-thumbs-down"></i></button>
+                  <span class="dislike-count">6</span>
+                  <button class="btn btn-link p-0 comment-button" data-post-id="3" aria-label="Comentários Xis">
+                    <i class="far fa-comment"></i> <span class="comment-count">0</span>
+                  </button>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- Post 4 -->
+          <div class="col">
+            <div class="card" data-post-id="4">
+              <img src="img/publicacao4.jfif" class="card-img-top" alt="Brownie">
+              <div class="card-body">
+                <h3 class="card-title">Brownie</h3>
+                <h5><p>Quem aí é time chocolate?</p></h5>
+                <p class="card-text">EUA</p>
+                <div class="d-flex align-items-center gap-3">
+                  <button class="like-button" aria-label="Curtir Brownie"><i class="fas fa-thumbs-up"></i></button>
+                  <span class="like-count">118</span>
+                  <button class="dislike-button" aria-label="Não Curtir Brownie"><i class="fas fa-thumbs-down"></i></button>
+                  <span class="dislike-count">8</span>
+                  <button class="btn btn-link p-0 comment-button" data-post-id="4" aria-label="Comentários Brownie">
+                    <i class="far fa-comment"></i> <span class="comment-count">0</span>
+                  </button>
+                </div>
+              </div>
+            </div>
+          </div>
+
+        </div>
+      </section>
+
+      <aside class="col-md-2 bg text-center py-4 right-sidebar">
+        <a href="index.html" class="btn btn-danger w-75 mb-3">Sair</a>
+      </aside>
+
+    </div>
+  </main>
+
+  <!-- Modal de Comentários -->
+  <div class="modal fade" id="commentModal" tabindex="-1" aria-labelledby="commentModalLabel" aria-hidden="true">
+    <div class="modal-dialog modal-dialog-scrollable">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title" id="commentModalLabel">Comentários</h5>
+          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Fechar"></button>
+        </div>
+        <div class="modal-body">
+          <ul id="commentList" class="list-group mb-3"></ul>
+          <form id="commentForm">
+            <div class="mb-3">
+              <textarea id="commentText" class="form-control" rows="3" placeholder="Escreva um comentário..." required></textarea>
+            </div>
+            <button type="submit" class="btn btn-primary w-100">Enviar</button>
+          </form>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Rodapé -->
+  <footer class="text-center py-4 bg-warning text-white">
+    <div class="container">
+      </div>
+      <p class="mb-0">&copy; 2025 - Sabor do Brasil</p>
+    </div>
+    <div>-------------------</div>
+      <div class="mb-3">
+        <a href="https://github.com/vitoriacandido/AtividadeAvaliativa22-03.git" class="text-white me-3" title="GitHub"><i class="fab fa-github"></i></a>
+  </footer>
+
+  <button class="btn btn-dark mode-toggle" title="Modo escuro" aria-pressed="false">🌙</button>
+
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+
+  <script>
+    // Função para atualizar os totais da sidebar
+    function atualizarTotais() {
+      const totalLikes = [...document.querySelectorAll('.like-count')].reduce((acc, el) => acc + parseInt(el.textContent), 0);
+      const totalDislikes = [...document.querySelectorAll('.dislike-count')].reduce((acc, el) => acc + parseInt(el.textContent), 0);
+      document.getElementById('totalLikes').textContent = totalLikes;
+      document.getElementById('totalDislikes').textContent = totalDislikes;
+    }
+
+    // Carrega o estado salvo no localStorage e atualiza a UI
+    function carregarEstado() {
+      const likedPosts = new Set(JSON.parse(localStorage.getItem('likedPosts') || '[]'));
+      const dislikedPosts = new Set(JSON.parse(localStorage.getItem('dislikedPosts') || '[]'));
+
+      document.querySelectorAll('.card').forEach(card => {
+        const postId = card.dataset.postId;
+        const likeBtn = card.querySelector('.like-button');
+        const dislikeBtn = card.querySelector('.dislike-button');
+
+        if (likedPosts.has(postId)) {
+          likeBtn.classList.add('liked');
+        } else {
+          likeBtn.classList.remove('liked');
+        }
+
+        if (dislikedPosts.has(postId)) {
+          dislikeBtn.classList.add('disliked');
+        } else {
+          dislikeBtn.classList.remove('disliked');
+        }
+      });
+
+      atualizarTotais();
+    }
+
+    // Função para lidar com cliques nos botões like
+    function toggleLike(postId, card) {
+      let likedPosts = new Set(JSON.parse(localStorage.getItem('likedPosts') || '[]'));
+      let dislikedPosts = new Set(JSON.parse(localStorage.getItem('dislikedPosts') || '[]'));
+
+      const likeBtn = card.querySelector('.like-button');
+      const dislikeBtn = card.querySelector('.dislike-button');
+      const likeCountEl = card.querySelector('.like-count');
+      const dislikeCountEl = card.querySelector('.dislike-count');
+
+      if (likedPosts.has(postId)) {
+        // Se já curtido, descurte
+        likedPosts.delete(postId);
+        likeBtn.classList.remove('liked');
+        likeCountEl.textContent = parseInt(likeCountEl.textContent) - 1;
+      } else {
+        // Curte
+        likedPosts.add(postId);
+        likeBtn.classList.add('liked');
+        likeCountEl.textContent = parseInt(likeCountEl.textContent) + 1;
+
+        // Se tinha dislike, remove
+        if (dislikedPosts.has(postId)) {
+          dislikedPosts.delete(postId);
+          dislikeBtn.classList.remove('disliked');
+          dislikeCountEl.textContent = parseInt(dislikeCountEl.textContent) - 1;
+        }
+      }
+
+      localStorage.setItem('likedPosts', JSON.stringify([...likedPosts]));
+      localStorage.setItem('dislikedPosts', JSON.stringify([...dislikedPosts]));
+      atualizarTotais();
+    }
+
+    // Função para lidar com cliques nos botões dislike
+    function toggleDislike(postId, card) {
+      let likedPosts = new Set(JSON.parse(localStorage.getItem('likedPosts') || '[]'));
+      let dislikedPosts = new Set(JSON.parse(localStorage.getItem('dislikedPosts') || '[]'));
+
+      const likeBtn = card.querySelector('.like-button');
+      const dislikeBtn = card.querySelector('.dislike-button');
+      const likeCountEl = card.querySelector('.like-count');
+      const dislikeCountEl = card.querySelector('.dislike-count');
+
+      if (dislikedPosts.has(postId)) {
+        // Se já descurtido, remove o dislike
+        dislikedPosts.delete(postId);
+        dislikeBtn.classList.remove('disliked');
+        dislikeCountEl.textContent = parseInt(dislikeCountEl.textContent) - 1;
+      } else {
+        // Dislike
+        dislikedPosts.add(postId);
+        dislikeBtn.classList.add('disliked');
+        dislikeCountEl.textContent = parseInt(dislikeCountEl.textContent) + 1;
+
+        // Se tinha like, remove
+        if (likedPosts.has(postId)) {
+          likedPosts.delete(postId);
+          likeBtn.classList.remove('liked');
+          likeCountEl.textContent = parseInt(likeCountEl.textContent) - 1;
+        }
+      }
+
+      localStorage.setItem('likedPosts', JSON.stringify([...likedPosts]));
+      localStorage.setItem('dislikedPosts', JSON.stringify([...dislikedPosts]));
+      atualizarTotais();
+    }
+
+    // Inicialização dos eventos dos botões
+    document.querySelectorAll('.card').forEach(card => {
+      const postId = card.dataset.postId;
+
+      const likeBtn = card.querySelector('.like-button');
+      const dislikeBtn = card.querySelector('.dislike-button');
+
+      likeBtn.addEventListener('click', () => toggleLike(postId, card));
+      dislikeBtn.addEventListener('click', () => toggleDislike(postId, card));
+    });
+
+    // Carregar estado ao abrir a página
+    window.addEventListener('load', () => {
+      carregarEstado();
+
+      // Modo escuro
+      const modeToggle = document.querySelector('.mode-toggle');
+      const body = document.body;
+      const darkModeStorage = localStorage.getItem('darkMode');
+      if (darkModeStorage === 'enabled') {
+        body.classList.add('dark-mode');
+        modeToggle.textContent = '☀️';
+        modeToggle.setAttribute('aria-pressed', 'true');
+      }
+
+      modeToggle.addEventListener('click', () => {
+        body.classList.toggle('dark-mode');
+        const isDark = body.classList.contains('dark-mode');
+        modeToggle.textContent = isDark ? '☀️' : '🌙';
+        modeToggle.setAttribute('aria-pressed', isDark.toString());
+        localStorage.setItem('darkMode', isDark ? 'enabled' : 'disabled');
+      });
+    });
+
+    // Comentários (simples)
+    const commentModal = new bootstrap.Modal(document.getElementById('commentModal'));
+    let currentPostId = null;
+
+    document.querySelectorAll('.comment-button').forEach(btn => {
+      btn.addEventListener('click', () => {
+        currentPostId = btn.dataset.postId;
+        document.getElementById('commentModalLabel').textContent = `Comentários da publicação #${currentPostId}`;
+
+        // Carregar comentários do localStorage
+        const comments = JSON.parse(localStorage.getItem(`comments_post_${currentPostId}`) || '[]');
+        const commentList = document.getElementById('commentList');
+        commentList.innerHTML = '';
+        comments.forEach(c => {
+          const li = document.createElement('li');
+          li.classList.add('list-group-item');
+          li.textContent = c;
+          commentList.appendChild(li);
+        });
+
+        commentModal.show();
+      });
+    });
+
+    document.getElementById('commentForm').addEventListener('submit', e => {
+      e.preventDefault();
+      const commentText = document.getElementById('commentText');
+      if (!commentText.value.trim()) return;
+
+      const comments = JSON.parse(localStorage.getItem(`comments_post_${currentPostId}`) || '[]');
+      comments.push(commentText.value.trim());
+      localStorage.setItem(`comments_post_${currentPostId}`, JSON.stringify(comments));
+
+      const commentList = document.getElementById('commentList');
+      const li = document.createElement('li');
+      li.classList.add('list-group-item');
+      li.textContent = commentText.value.trim();
+      commentList.appendChild(li);
+
+      commentText.value = '';
+
+      // Atualizar contagem de comentários na interface
+      const commentBtn = document.querySelector(`.comment-button[data-post-id="${currentPostId}"]`);
+      const countSpan = commentBtn.querySelector('.comment-count');
+      countSpan.textContent = comments.length;
+    });
+  </script>
+
+</body>
+</html>
