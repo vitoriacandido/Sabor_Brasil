@@ -1,0 +1,124 @@
+body {
+  font-family: 'Arial', sans-serif;
+}
+
+.navbar-brand {
+  font-weight: bold;
+  color: #ffc107 !important;
+}
+
+.logo-img {
+  width: 45px;
+  border-radius: 50%;
+}
+
+.card img {
+  object-fit: cover;
+  height: 300px;
+}
+
+.card-body {
+  background-color: #ffcf30;
+}
+
+.like-button, .dislike-button, .comment-button {
+  cursor: pointer;
+  border: none;
+  background: none;
+  font-size: 1.1rem;
+  color: #555;
+}
+
+.like-button:hover:not(.text-primary), 
+.dislike-button:hover:not(.text-danger),
+.comment-button:hover {
+  transform: scale(1.1);
+  color: #ffc107;
+}
+
+.like-button.text-primary {
+  color: #0d6efd;
+  cursor: default;
+}
+
+.dislike-button.text-danger {
+  color: #dc3545;
+  cursor: default;
+}
+
+.user-sidebar, .right-sidebar {
+  border-right: 1px solid #ff0202;
+}
+
+.modal-content {
+  border-radius: 10px;
+}
+
+.like-button:focus, .dislike-button:focus, .comment-button:focus {
+  outline: none;
+  box-shadow: none;
+}
+
+
+
+ body {
+      font-family: 'Arial', sans-serif;
+    }
+
+    .navbar-brand {
+      font-weight: bold;
+      color: #ffc107 !important;
+    }
+
+    .logo-img {
+      width: 45px;
+      border-radius: 50%;
+    }
+
+    .card img {
+      object-fit: cover;
+      height: 300px;
+    }
+
+    .card-body {
+      background-color: #ffffff;
+    }
+
+    .like-button, .dislike-button, .comment-button {
+      cursor: pointer;
+      border: none;
+      background: none;
+      font-size: 1.1rem;
+      color: #715c99;
+    }
+
+    .like-button:hover:not(.text-primary), 
+    .dislike-button:hover:not(.text-danger),
+    .comment-button:hover {
+      transform: scale(1.1);
+      color: #90e20d;
+    }
+
+    .like-button.text-primary {
+      color: #0d6efd; /* azul do Bootstrap */
+      cursor: default;
+    }
+
+    .dislike-button.text-danger {
+      color: #d30116; /* vermelho Bootstrap */
+      cursor: default;
+    }
+
+    .user-sidebar, .right-sidebar {
+      border-right: 1px solid #ca0606;
+    }
+
+    .modal-content {
+      border-radius: 10px;
+    }
+
+    /* Remover foco dos botões ao clicar */
+    .like-button:focus, .dislike-button:focus, .comment-button:focus {
+      outline: none;
+      box-shadow: none;
+    }
