@@ -1,0 +1,330 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Sabor do Brasil - Publicações</title>
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet" />
+  <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" rel="stylesheet" />
+  <link rel="stylesheet" href="css/style.css" />
+</head>
+
+<body class="bg-warning">
+  <!-- Cabeçalho -->
+  <header class="navbar navbar-dark bg-black sticky-top px-3 shadow-sm justify-content-between">
+    <a class="navbar-brand" href="#">Sabor do Brasil</a>
+    <div class="d-flex align-items-center gap-3">
+      <a href="index.html" class="text-white" title="Página inicial"><i class="fas fa-home"></i></a>
+      <img src="img/logo_sabor_do_brasil.png" class="rounded-circle header-logo" width="32" height="32" alt="Logo Sabor do Brasil" title="Logo Sabor do Brasil">
+    </div>
+  </header>
+
+  <main class="container-fluid">
+    <div class="row min-vh-100">
+      <!-- Sidebar -->
+      <aside class="col-md-2 bg text-center py-4 user-sidebar">
+        <img src="img/logo_sabor_do_brasil.png" class="rounded-circle mb-4" width="95" alt="Logo Sabor do Brasil">
+        <h5>Sabor Brasil</h5>
+        <hr>
+        <p><strong id="totalLikes">0</strong><br>Likes</p>
+        <p><strong id="totalDislikes">0</strong><br>Dislikes</p>
+        <button type="button" class="btn bg-danger btn-outline-dark mt-3" data-bs-toggle="modal" data-bs-target="#loginModal">Login</button>
+        </aside>
+
+      <!-- Publicações -->
+      <section class="col-md-8 p-4">
+        <h3 class="text-center fw-bold mb-4">Publicações</h3>
+        <div class="row row-cols-1 row-cols-md-2 g-4">
+
+          <!-- Exemplo de publicação -->
+          <div class="col">
+            <div class="card" data-post-id="1">
+              <img src="img/feijoada.webp" class="card-img-top" alt="Feijoada">
+              <div class="card-body">
+                <h3 class="card-title">Feijoada</h3>
+                 <h5><p>A melhor do Brasil</p></h5>
+                <p class="mb-1 text-muted small">Local 01 - Brasil</p>
+                <div class="d-flex gap-3 align-items-center">
+                  <button type="button" class="like-button" title="Curtir Feijoada"><i class="fas fa-thumbs-up"></i></button><span class="like-count">75</span>
+                  <button type="button" class="dislike-button" title="Não curtir Feijoada"><i class="fas fa-thumbs-down"></i></button><span class="dislike-count">22</span>
+                  <button type="button" class="comment-button" data-post-id="1" title="Comentários Feijoada"><i class="far fa-comment"></i><span class="comment-count">0</span></button>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- Publicação 2 -->
+          <div class="col">
+            <div class="card">
+              <img src="img/picanha.jpg" class="card-img-top" alt="Picanha na brasa">
+              <div class="card-body">
+                <h3 class="card-title">Picanha na Brasa</h3>
+                 <h5><p>Quem aí adora um churrasco?</p></h5>
+                <p class="mb-1 text-muted small">Local 02 - Rio Grande do Sul</p>
+                <div class="d-flex align-items-center gap-3">
+                  <button class="like-button" aria-label="Curtir Picanha"><i class="fas fa-thumbs-up"></i></button><span class="like-count">86</span>
+                  <button class="dislike-button" aria-label="Não curtir Picanha"><i class="fas fa-thumbs-down"></i></button><span class="dislike-count">45</span>
+                  <button class="comment-button" data-post-id="2" aria-label="Comentários Picanha">
+                    <i class="far fa-comment"></i><span class="comment-count">0</span>
+                  </button>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- Publicação 3 -->
+          <div class="col">
+            <div class="card">
+              <img src="img/moqueca.jpg" class="card-img-top" alt="Moqueca baiana">
+              <div class="card-body">
+                <h3 class="card-title">Moqueca Baiana</h3>
+                <h5><p>A melhor do Brasil</p></h5>
+                <p class="mb-1 text-muted small">Local 03 - Maceió-AL</p>
+                <div class="d-flex align-items-center gap-3">
+                  <button class="like-button" aria-label="Curtir Moqueca"><i class="fas fa-thumbs-up"></i></button><span class="like-count">775</span>
+                  <button class="dislike-button" aria-label="Não curtir Moqueca"><i class="fas fa-thumbs-down"></i></button><span class="dislike-count">4</span>
+                  <button class="comment-button" data-post-id="3" aria-label="Comentários Moqueca">
+                    <i class="far fa-comment"></i><span class="comment-count">0</span>
+                  </button>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- Publicação 4 -->
+          <div class="col">
+            <div class="card">
+              <img src="img/salada.webp" class="card-img-top" alt="Salada Italiana">
+              <div class="card-body">
+                <h3 class="card-title">Salada Italiana</h3>
+                <h5><p>Sabor fresco e saudável</p></h5>
+                <p class="mb-1 text-muted small">Local 04 - Itália</p>
+                <div class="d-flex align-items-center gap-3">
+                  <button class="like-button" aria-label="Curtir Salada Italiana"><i class="fas fa-thumbs-up"></i></button><span class="like-count">856</span>
+                  <button class="dislike-button" aria-label="Não curtir Salada Italiana"><i class="fas fa-thumbs-down"></i></button><span class="dislike-count">2</span>
+                  <button class="comment-button" data-post-id="4" aria-label="Comentários Salada Italiana">
+                    <i class="far fa-comment"></i><span class="comment-count">0</span>
+                  </button>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- Publicação 5 -->
+          <div class="col">
+            <div class="card">
+              <img src="img/salada2.webp" class="card-img-top" alt="Salada de Pepino">
+              <div class="card-body">
+                <h3 class="card-title">Salada de Pepino</h3>
+                <h5><p>Refrescante e leve</p></h5>
+                <p class="mb-1 text-muted small">Local 05 - Desconhecido</p>
+                <div class="d-flex align-items-center gap-3">
+                  <button class="like-button" aria-label="Curtir Salada de Pepino"><i class="fas fa-thumbs-up"></i></button><span class="like-count">985</span>
+                  <button class="dislike-button" aria-label="Não curtir Salada de Pepino"><i class="fas fa-thumbs-down"></i></button><span class="dislike-count">6</span>
+                  <button class="comment-button" data-post-id="5" aria-label="Comentários Salada de Pepino">
+                    <i class="far fa-comment"></i><span class="comment-count">0</span>
+                  </button>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- Publicação 6 -->
+          <div class="col">
+            <div class="card">
+              <img src="img/fileminion.jfif" class="card-img-top" alt="Filé Mignon com rúcula">
+              <div class="card-body">
+                <h3 class="card-title">Filé Mignon com Rúcula</h3>
+                <h5><p>Uma explosão de sabores</p></h5>
+                <p class="mb-1 text-muted small">Local 06 - França</p>
+                <div class="d-flex align-items-center gap-3">
+                  <button class="like-button" aria-label="Curtir Filé Mignon"><i class="fas fa-thumbs-up"></i></button><span class="like-count">75</span>
+                  <button class="dislike-button" aria-label="Não curtir Filé Mignon"><i class="fas fa-thumbs-down"></i></button><span class="dislike-count">22</span>
+                  <button class="comment-button" data-post-id="6" aria-label="Comentários Filé Mignon">
+                    <i class="far fa-comment"></i><span class="comment-count">0</span>
+                  </button>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+    </div>
+  </main>
+
+
+
+ <!-- Modal Login -->
+<div class="modal fade" id="loginModal" tabindex="-1" aria-labelledby="loginModalLabel" aria-hidden="true">
+  <div class="modal-dialog">
+    <div class="modal-content p-3">
+      <div class="modal-header">
+        <h5 class="modal-title" id="loginModalLabel">Login</h5>
+        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Fechar"></button>
+      </div>
+      <div class="modal-body">
+        <form action="Usuario.html" method="GET">
+          <div class="mb-3">
+            <label for="username" class="form-label">Usuário</label>
+            <input type="text" id="username" name="username" class="form-control" required>
+          </div>
+          <div class="mb-3">
+            <label for="password" class="form-label">Senha</label>
+            <input type="password" id="password" name="password" class="form-control" required>
+          </div>
+          <button type="submit" class="btn btn-primary w-100">Entrar</button>
+        </form>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cancelar</button>
+      </div>
+    </div>
+  </div>
+</div>
+
+
+
+  <!-- Modal Comentários -->
+  <div class="modal fade" id="commentModal" tabindex="-1">
+    <div class="modal-dialog modal-dialog-scrollable">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title">Comentários</h5>
+          <button type="button" class="btn-close" data-bs-dismiss="modal" title="Fechar"></button>
+        </div>
+        <div class="modal-body">
+          <ul id="commentList" class="list-group mb-3"></ul>
+          <form id="commentForm">
+            <textarea id="commentText" class="form-control mb-3" rows="3" placeholder="Escreva um comentário..." required></textarea>
+            <button type="submit" class="btn btn-primary w-100">Enviar</button>
+          </form>
+        </div>
+      </div>
+    </div>
+  </div>
+  
+  
+
+  <!-- Botão modo escuro -->
+  <button class="btn btn-dark mode-toggle" title="Alternar modo escuro" style="position: fixed; bottom: 20px; right: 20px;">🌙</button>
+
+  <!-- Rodapé -->
+  <footer class="text-center py-4 bg-dark text-white">
+    <div class="container">
+      <p class="mb-0">&copy; 2025 - Sabor do Brasil - Feito por Vitoria</p>
+    </div>
+    <div>-------------------</div>
+      <div class="mb-3">
+        <a href="https://github.com/vitoriacandido/AtividadeAvaliativa22-03.git" class="text-white me-3" title="GitHub"><i class="fab fa-github"></i></a>
+  </footer>
+
+  <!-- Scripts Bootstrap -->
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+
+  <!-- Script único de interações -->
+  <script>
+    document.addEventListener('DOMContentLoaded', () => {
+      const likedPosts = new Set(JSON.parse(localStorage.getItem('likedPosts') || '[]'));
+      const dislikedPosts = new Set(JSON.parse(localStorage.getItem('dislikedPosts') || '[]'));
+      const commentsData = JSON.parse(localStorage.getItem('commentsData') || '{}');
+
+      function saveStorage() {
+        localStorage.setItem('likedPosts', JSON.stringify([...likedPosts]));
+        localStorage.setItem('dislikedPosts', JSON.stringify([...dislikedPosts]));
+        localStorage.setItem('commentsData', JSON.stringify(commentsData));
+      }
+
+      function updateSidebarTotals() {
+        let totalLikes = 0, totalDislikes = 0;
+        document.querySelectorAll('.like-count').forEach(el => totalLikes += parseInt(el.textContent) || 0);
+        document.querySelectorAll('.dislike-count').forEach(el => totalDislikes += parseInt(el.textContent) || 0);
+        document.getElementById('totalLikes').textContent = totalLikes.toLocaleString('pt-BR');
+        document.getElementById('totalDislikes').textContent = totalDislikes.toLocaleString('pt-BR');
+      }
+
+      document.querySelectorAll('.card').forEach(card => {
+        const postId = card.getAttribute('data-post-id');
+        const likeBtn = card.querySelector('.like-button');
+        const dislikeBtn = card.querySelector('.dislike-button');
+
+        if (likedPosts.has(postId)) likeBtn.classList.add('text-primary');
+        if (dislikedPosts.has(postId)) dislikeBtn.classList.add('text-danger');
+
+        likeBtn.addEventListener('click', () => {
+          if (!likedPosts.has(postId)) {
+            likedPosts.add(postId);
+            likeBtn.classList.add('text-primary');
+            card.querySelector('.like-count').textContent++;
+            if (dislikedPosts.has(postId)) {
+              dislikedPosts.delete(postId);
+              dislikeBtn.classList.remove('text-danger');
+              card.querySelector('.dislike-count').textContent--;
+            }
+            saveStorage(); updateSidebarTotals();
+          }
+        });
+
+        dislikeBtn.addEventListener('click', () => {
+          if (!dislikedPosts.has(postId)) {
+            dislikedPosts.add(postId);
+            dislikeBtn.classList.add('text-danger');
+            card.querySelector('.dislike-count').textContent++;
+            if (likedPosts.has(postId)) {
+              likedPosts.delete(postId);
+              likeBtn.classList.remove('text-primary');
+              card.querySelector('.like-count').textContent--;
+            }
+            saveStorage(); updateSidebarTotals();
+          }
+        });
+      });
+
+      const commentModal = new bootstrap.Modal(document.getElementById('commentModal'));
+      let currentPostId = null;
+
+      document.querySelectorAll('.comment-button').forEach(btn => {
+        btn.addEventListener('click', () => {
+          currentPostId = btn.getAttribute('data-post-id');
+          const list = document.getElementById('commentList');
+          list.innerHTML = '';
+          (commentsData[currentPostId] || []).forEach(text => {
+            const li = document.createElement('li');
+            li.textContent = text;
+            li.className = 'list-group-item';
+            list.appendChild(li);
+          });
+          commentModal.show();
+        });
+      });
+
+      document.getElementById('commentForm').addEventListener('submit', e => {
+        e.preventDefault();
+        const text = document.getElementById('commentText').value.trim();
+        if (!text) return;
+        if (!commentsData[currentPostId]) commentsData[currentPostId] = [];
+        commentsData[currentPostId].push(text);
+        saveStorage();
+        const li = document.createElement('li');
+        li.className = 'list-group-item';
+        li.textContent = text;
+        document.getElementById('commentList').appendChild(li);
+
+        const countSpan = document.querySelector(`.comment-button[data-post-id="${currentPostId}"] .comment-count`);
+        if (countSpan) countSpan.textContent = commentsData[currentPostId].length;
+        document.getElementById('commentText').value = '';
+      });
+
+      // Modo escuro
+      const toggle = document.querySelector('.mode-toggle');
+      toggle.addEventListener('click', () => {
+        document.body.classList.toggle('bg-dark');
+        document.body.classList.toggle('text-white');
+      });
+
+      updateSidebarTotals();
+    });
+  </script>
+
+  
+</body>
+</html>
